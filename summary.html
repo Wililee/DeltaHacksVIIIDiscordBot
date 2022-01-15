@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Fractal by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/styles.css">
+
+</head>
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+	<body class="is-preload">
+		<!-- Header -->
+		<header id="header">
+          <h1 class="header__title">Patient Assessment Tool</h1>
+          <p class="header__sub-title">Patient Data Summary</p>
+		  <form>
+			<div class="col-12">
+				<select name="patient" id="patient">
+					<option value="">- Patient Name -</option>
+					<option value="1">Gerald</option>
+					<option value="2">Alice</option>
+				</select>
+			</div>
+		  </form>
+		  <ul class="actions">
+			<li><a onclick="showData()" id="view-data" href="#one" class="button icon solid fa-chevron-down scrolly">View</a></li>
+			</ul>
+		  <br>
+		  <br>
+		</header>
+
+		<!-- One -->
+		<section id="one" class="wrapper">
+			<div id="data-summary" class="inner alt">
+				<p class="header__sub-title">Symptom Data</p>
+				<!--Table goes here-->
+			</div>
+			<br><br><br><br>
+			<div id="parts-summary" class="inner alt">
+				<p class="header__sub-title">Localized Pain Data</p>
+				<!--Table goes here-->
+			</div>
+		</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<p class="copyright">&copy; Untitled. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/localDataStorage-1.3.0.trim.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script src="./js/index.js"></script>
+
+	</body>
+</html>

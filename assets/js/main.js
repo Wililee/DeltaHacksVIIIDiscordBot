@@ -22,6 +22,7 @@ $(".pain_img").on("click", function(){
 });
 
 $("div[id=pain_scale]").hide()
+$("div[id=data-summary]").hide()
 // on click on body part, set the value to myStorage
 $("map[name=parts] area").on('click', function () {
     var selected_part = $(this).attr('id');
@@ -34,6 +35,143 @@ $("map[name=parts] area").on('click', function () {
 	$("div[id=pain_scale]").show()
 	$("p[class=header__sub-title]").html("Please mark how much it hurts on your " + selected_part)
 });
+
+function showData(){
+	data = {
+		"patients":[
+			{
+				"id":"1",
+				"name":"Gerald",
+				"data":[
+					{
+						"date": "March 1, 2022",
+						"pain":4,
+						"tiredness":3,
+						"anxiety": 7,
+						"wellbeing":10
+					},
+					{
+						"date": "March 2, 2022",
+						"pain":2,
+						"tiredness":2,
+						"anxiety": 5,
+						"wellbeing":10
+					}
+				],
+				"body_parts":[
+					{
+						"head":6,
+						"left hand":1
+					}
+				]
+			},
+			{
+				"id":"2",
+				"name":"Alice",
+				"data":[
+					{
+						"date": "March 3, 2022",
+						"pain":3,
+						"tiredness":3,
+						"anxiety": 3
+					},
+					{
+						"date": "March 1, 2022",
+						"pain":1,
+						"tiredness":2,
+						"anxiety": 1
+					}
+				],
+				"body_parts":[
+					{
+						"head":3,
+						"left hand":9
+					},
+				]
+			}
+		]};
+	event.preventDefault();
+	var patient_id = $("select[id=patient").val();
+	localData.set('patient_id', patient_id);
+	const [key, pat] = Object.entries(data.patients).find(([key, pat]) => pat.id === patient_id);
+	$("div[id=data-summary]").show();
+
+	let table = document.createElement('table');
+	table.id = "data-table"
+	let thead = document.createElement('thead');
+	let tbody = document.createElement('tbody');
+
+	table.appendChild(thead);
+	table.appendChild(tbody);
+
+	// Adding the entire table to the body tag
+	var obj = document.getElementById('data-summary');
+	var tab = document.getElementById('data-table')
+	if(tab){
+		tab.parentNode.removeChild(tab);
+	}
+	obj.appendChild(table);
+
+	// Creating and adding data to first row of the table
+	let row_1 = document.createElement('tr');
+	let heading_1 = document.createElement('th');
+	for(var keys in pat.data[0]){
+		heading_1 = document.createElement('th');
+		heading_1.innerHTML = keys;
+		row_1.appendChild(heading_1);
+	}
+	thead.appendChild(row_1);
+
+	let row = document.createElement('tr');
+	let row_data = document.createElement('td');
+	for(let i=0;i<pat.data.length;i++){
+		row = document.createElement('tr');
+		for(var keys in pat.data[i]){
+			row_data = document.createElement('td');
+			row_data.innerHTML = pat.data[i][keys];
+			row.appendChild(row_data);
+		}
+		tbody.appendChild(row);
+	}
+
+	table = document.createElement('table');
+	table.id = "parts-table"
+	thead = document.createElement('thead');
+	tbody = document.createElement('tbody');
+
+	table.appendChild(thead);
+	table.appendChild(tbody);
+
+	// Adding the entire table to the body tag
+	obj = document.getElementById('parts-summary');
+	tab = document.getElementById('parts-table')
+	if(tab){
+		tab.parentNode.removeChild(tab);
+	}
+	obj.appendChild(table);
+
+	// Creating and adding data to first row of the table
+	row_1 = document.createElement('tr');
+	heading_1 = document.createElement('th');
+	for(var keys in pat.body_parts[0]){
+		heading_1 = document.createElement('th');
+		heading_1.innerHTML = keys;
+		row_1.appendChild(heading_1);
+	}
+	thead.appendChild(row_1);
+
+	row = document.createElement('tr');
+	row_data = document.createElement('td');
+	for(let i=0;i<pat.body_parts.length;i++){
+		row = document.createElement('tr');
+		for(var keys in pat.body_parts[i]){
+			row_data = document.createElement('td');
+			row_data.innerHTML = pat.body_parts[i][keys];
+			row.appendChild(row_data);
+		}
+		tbody.appendChild(row);
+	}
+}
 
 function saveName() {
 	event.preventDefault();

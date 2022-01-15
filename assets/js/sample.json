@@ -1,0 +1,22 @@
+{
+    "id":"1",
+    "name":"Gerald",
+    "data":[
+        {
+            "date": "March 1, 2022",
+            "pain":4,
+            "tiredness":3,
+            "anxiety": 7
+        }
+    ],
+    "body_parts":[
+        {
+            "part_name":"head",
+            "pain":8
+        },
+        {
+            "part_name":"left hand",
+            "pain":2
+        }
+    ]
+}
