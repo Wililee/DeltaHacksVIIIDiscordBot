@@ -23,43 +23,49 @@
 			<header id="header">
           <h1 class="header__title">Pain Indicator</h1>
           <p class="header__sub-title">Please mark on these pictures where it is that you hurt</p>
-          <img src="./images/body.jpg" alt="Body Diagram" usemap="#parts" width="811" height="1000">
+          <img id=body_diagram src="./images/body.jpg" alt="Body Diagram" usemap="#parts" width="811" height="1000">
 
           <map name="parts">
-              <button><area shape="circle" coords="197,94,60" alt="Head" href="/head"></button>
-              <button><area shape="rect" coords="560,170,640,130" alt="Neck" href="/neck"></button>
-              <button><area shape="rect" coords="120,430,270,170" alt="Chest" href="/front"></button>
-              <button><area shape="rect" coords="70,360,110,210" alt="Upper Arm Right" href="/uarmright"></button>
-			  <button><area shape="rect" coords="50,500,110,370" alt="Lower Arm Right" href="/larmright"></button>
-			  <button><area shape="rect" coords="30,500,100,580" alt="Hand Right" href="/handright"></button>
-			  <button><area shape="rect" coords="270,190,320,330" alt="Upper Arm Left" href="/uarmleft"></button>
-			  <button><area shape="rect" coords="280,350,340,490" alt="Lower Arm Left" href="/larmleft"></button>
-			  <button><area shape="rect" coords="290,580,360,500" alt="Hand Left" href="/handleft"></button>
-			  <button><area shape="circle" coords="200,480,25" alt="Groin" href="/groin"></button>
-			  <button><area shape="rect" coords="110,440,190,700" alt="Upper Leg Right" href="/ulegright"></button>
-			  <button><area shape="rect" coords="140,700,190,850" alt="Lower Leg Right" href="/llegright"></button>
-			  <button><area shape="rect" coords="140,960,190,680" alt="Foot Right" href="/footright"></button>
-			  <button><area shape="rect" coords="200,700,280,440" alt="Upper Leg Left" href="/ulegleft"></button>
-			  <button><area shape="rect" coords="200,850,250,710" alt="Lower Leg Left" href="/llegleft"></button>
-			  <button><area shape="rect" coords="200,960,240,860" alt="Foot Left" href="/footleft"></button>
-			  <button><area shape="rect" coords="560,120,640,40" alt="Head Back" href="/headback"></button>
-			  <button><area shape="rect" coords="520,390,670,180" alt="Back" href="/back"></button>
-			  <button><area shape="rect" coords="510,500,670,400" alt="butt" href="/butt"></button>
-			  <button><area shape="rect" coords="670,360,710,210" alt="Upper Arm Right" href="/uarmright"></button>
-			  <button><area shape="rect" coords="680,370,740,490" alt="Lower Arm Right" href="/larmright"></button>
-			  <button><area shape="rect" coords="700,490,750,560" alt="Hand Right" href="/handright"></button>
-			  <button><area shape="rect" coords="470,220,510,360" alt="Upper Arm Left" href="/uarmleft"></button>
-			  <button><area shape="rect" coords="450,480,510,370" alt="Lower Arm Left" href="/larmleft"></button>
-			  <button><area shape="rect" coords="440,570,490,500" alt="Hand Left" href="/handleft"></button>
-			  <button><area shape="rect" coords="600,670,680,520" alt="Upper Leg Right" href="/ulegright"></button>
-			  <button><area shape="rect" coords="600,680,640,830" alt="Lower Leg Right" href="/llegright"></button>
-			  <button><area shape="rect" coords="600,850,650,960" alt="Foot Right" href="/footright"></button>
-			  <button><area shape="rect" coords="500,510,590,680" alt="Upper Leg Left" href="/ulegleft"></button>
-			  <button><area shape="rect" coords="530,690,580,830" alt="Lower Leg Left" href="/llegleft"></button>
-			  <button><area shape="rect" coords="540,850,590,970" alt="Foot Left" href="/footleft"></button>
-			  
-			</map>
-				
+			<button><area id="head" shape="circle" coords="197,94,60" alt="Head"></button>
+			<button><area id="neck" shape="rect" coords="560,170,640,130" alt="Neck"></button>
+			<button><area id="front" shape="rect" coords="120,430,270,170" alt="Chest"></button>
+			<button><area id="uarmright" shape="rect" coords="70,360,110,210" alt="Upper Arm Right"></button>
+			<button><area id="larmright" shape="rect" coords="50,500,110,370" alt="Lower Arm Right"></button>
+			<button><area id="handright" shape="rect" coords="30,500,100,580" alt="Hand Right"></button>
+			<button><area id="uarmleft" shape="rect" coords="270,190,320,330" alt="Upper Arm Left"></button>
+			<button><area id="larmleft" shape="rect" coords="280,350,340,490" alt="Lower Arm Left"></button>
+			<button><area id="handleft" shape="rect" coords="290,580,360,500" alt="Hand Left"></button>
+			<button><area id="groin" shape="circle" coords="200,480,25" alt="Groin"></button>
+			<button><area id="ulegright" shape="rect" coords="110,440,190,700" alt="Upper Leg Right"></button>
+			<button><area id="llegright" shape="rect" coords="140,700,190,850" alt="Lower Leg Right"></button>
+			<button><area id="footright" shape="rect" coords="140,960,190,680" alt="Foot Right"></button>
+			<button><area id="ulegleft" shape="rect" coords="200,700,280,440" alt="Upper Leg Left"></button>
+			<button><area id="llegleft" shape="rect" coords="200,850,250,710" alt="Lower Leg Left"></button>
+			<button><area id="footleft" shape="rect" coords="200,960,240,860" alt="Foot Left"></button>
+			<button><area id="headback" shape="rect" coords="560,120,640,40" alt="Head Back"></button>
+			<button><area id="back" shape="rect" coords="520,390,670,180" alt="Back"></button>
+			<button><area id="butt" shape="rect" coords="510,500,670,400" alt="butt"></button>
+			<button><area id="uarmright" shape="rect" coords="670,360,710,210" alt="Upper Arm Right"></button>
+			<button><area id="larmright" shape="rect" coords="680,370,740,490" alt="Lower Arm Right"></button>
+			<button><area id="handright" shape="rect" coords="700,490,750,560" alt="Hand Right"></button>
+			<button><area id="uarmleft" shape="rect" coords="470,220,510,360" alt="Upper Arm Left"></button>
+			<button><area id="larmleft" shape="rect" coords="450,480,510,370" alt="Lower Arm Left"></button>
+			<button><area id="handleft" shape="rect" coords="440,570,490,500" alt="Hand Left"></button>
+			<button><area id="ulegright" shape="rect" coords="600,670,680,520" alt="Upper Leg Right"></button>
+			<button><area id="llegright" shape="rect" coords="600,680,640,830" alt="Lower Leg Right"></button>
+			<button><area id="footright" shape="rect" coords="600,850,650,960" alt="Foot Right"></button>
+			<button><area id="ulegleft" shape="rect" coords="500,510,590,680" alt="Upper Leg Left"></button>
+			<button><area id="llegleft" shape="rect" coords="530,690,580,830" alt="Lower Leg Left"></button>
+			<button><area id="footleft" shape="rect" coords="540,850,590,970" alt="Foot Left"></button>
+		</map>
+		<div id=pain_scale>
+			<img class="pain_img" id=0 src="https://i.imgur.com/8dxHd0G.png">
+			<img class="pain_img" id=2 src="https://i.imgur.com/UQlGDA8.png">
+			<img class="pain_img" id=4 src="https://i.imgur.com/hcp511P.png">
+			<img class="pain_img" id=6 src="https://i.imgur.com/1pQXN2u.png">
+			<img class="pain_img" id=8 src="https://i.imgur.com/rEoyN2g.png">
+			<img class="pain_img" id=10 src="https://i.imgur.com/Dqw9RbN.png">
+		</div>
 		</header>
 
 		<section id="three" class="wrapper style2 special">
@@ -69,7 +75,7 @@
 			</ul>
 		</section>
 
-		
+
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -82,13 +88,13 @@
 			</footer>
 
 		<!-- Scripts -->
+			<script src="assets/js/localDataStorage-1.3.0.trim.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-      <script src="./js/index.js"></script>
 
 	</body>
 </html>
