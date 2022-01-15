@@ -101,3 +101,20 @@ const run = async () => {
 };
 
 buttonEl.addEventListener('click', () => run());
+<<<<<<< Updated upstream
+=======
+
+
+// TRANSLATION STUFF
+
+translate.engine = "google";
+translate.key = 'AIzaSyCD_60nhiJvpRF4LIQBBaI0Jc1Leu8IH7M';
+translateButton.addEventListener('click', async () => {
+
+  const text = await translate(messageEl.innerText, "es");
+  translationOutput.innerText = text;
+
+
+
+})
+>>>>>>> Stashed changes
