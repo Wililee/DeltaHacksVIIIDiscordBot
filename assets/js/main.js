@@ -91,7 +91,7 @@ function showData(){
 			}
 		]};
 	event.preventDefault();
-	var patient_id = $("select[id=patient").val();
+	var patient_id = $("select[id=patient]").val();
 	localData.set('patient_id', patient_id);
 	const [key, pat] = Object.entries(data.patients).find(([key, pat]) => pat.id === patient_id);
 	$("div[id=data-summary]").show();
