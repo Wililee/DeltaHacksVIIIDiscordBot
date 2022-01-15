@@ -18,6 +18,7 @@ $(".pain_img").on("click", function(){
 	}
 	$("img[id=body_diagram]").show()
 	$("div[id=pain_scale]").hide()
+	$("p[class=header__sub-title]").html("Please mark on these pictures where it is that you hurt")
 
 });
 
@@ -26,6 +27,8 @@ $("div[id=data-summary]").hide()
 // on click on body part, set the value to myStorage
 $("map[name=parts] area").on('click', function () {
     var selected_part = $(this).attr('id');
+	var selected_part_name = $(this).attr('alt');
+
 	localData.set("selected_part", selected_part);
 	var body_parts = localData.get('body_parts')
 	body_parts.push({'part': selected_part, 'pain': null})
@@ -33,7 +36,7 @@ $("map[name=parts] area").on('click', function () {
 
 	$("img[id=body_diagram]").hide()
 	$("div[id=pain_scale]").show()
-	$("p[class=header__sub-title]").html("Please mark how much it hurts on your " + selected_part)
+	$("p[class=header__sub-title]").html("Please mark how much it hurts on your " + selected_part_name)
 });
 
 function showData(){
@@ -181,6 +184,7 @@ function saveName() {
 
 	localData.set('body_parts', []);
 	$("p[class=header__sub-title]").html('Patient: ' + patient_name)
+	window.location.replace('bodyparts.html')
 }
 
 (function($) {
