@@ -3,6 +3,15 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+myStorage = window.localStorage;
+
+
+$("map[name=parts] area").on('click', function () {
+    var body_part = $(this).attr('id');
+	alert(body_part);
+	localStorage.setItem('bodyPart', body_part);
+});
+
 
 (function($) {
 
