@@ -108,7 +108,7 @@ buttonEl.addEventListener('click', () => run());
 // TRANSLATION STUFF
 
 translate.engine = "google";
-translate.key = 'AIzaSyCD_60nhiJvpRF4LIQBBaI0Jc1Leu8IH7M';
+translate.key = '';
 translateButton.addEventListener('click', async () => {
 
   const text = await translate(messageEl.innerText, "es");
