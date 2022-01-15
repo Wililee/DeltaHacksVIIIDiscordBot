@@ -3,15 +3,21 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-myStorage = window.localStorage;
+myStorage = window.sessionStorage;
 
 
 $("map[name=parts] area").on('click', function () {
     var body_part = $(this).attr('id');
 	alert(body_part);
-	localStorage.setItem('bodyPart', body_part);
+	myStorage.setItem('bodyPart', body_part);
 });
 
+function saveName() {
+	event.preventDefault();
+	myStorage.clear()
+	var patient_name = $("input[id=pname]").val()
+	myStorage.setItem('patient_name', patient_name);
+}
 
 (function($) {
 
