@@ -1,8 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-
 const app = express();
+
+
 app.use(express.json());
 app.use(cors());
 const API_KEY = process.env.API_KEY;
@@ -23,3 +24,4 @@ app.set('port', 5000);
 const server = app.listen(app.get('port'), () => {
   console.log(`Server is running on port ${server.address().port}`);
 });
+

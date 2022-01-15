@@ -1,7 +1,9 @@
-// required dom elements
 const buttonEl = document.getElementById('button');
 const messageEl = document.getElementById('message');
 const titleEl = document.getElementById('real-time-title');
+
+const translateButton = document.getElementById('translateButton');
+const translationOutput = document.getElementById('translatedText')
 
 // set initial state of application variables
 messageEl.style.display = 'none';
@@ -11,9 +13,9 @@ let recorder;
 
 // runs real-time transcription and handles global variables
 const run = async () => {
-  if (isRecording) { 
+  if (isRecording) {
     if (socket) {
-      socket.send(JSON.stringify({terminate_session: true}));
+      socket.send(JSON.stringify({ terminate_session: true }));
       socket.close();
       socket = null;
     }
@@ -26,10 +28,10 @@ const run = async () => {
     const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
     const data = await response.json();
 
-    if(data.error){
+    if (data.error) {
       alert(data.error)
     }
-    
+
     const { token } = data;
 
     // establish wss with AssemblyAI (AAI) at 16000 sample rate
@@ -55,7 +57,7 @@ const run = async () => {
       console.error(event);
       socket.close();
     }
-    
+
     socket.onclose = event => {
       console.log(event);
       socket = null;
@@ -101,3 +103,17 @@ const run = async () => {
 };
 
 buttonEl.addEventListener('click', () => run());
+
+
+// TRANSLATION STUFF
+
+translate.engine = "google";
+translate.key = '';
+translateButton.addEventListener('click', async () => {
+
+  const text = await translate(messageEl.innerText, "es");
+  translationOutput.innerText = text;
+
+
+
+})
