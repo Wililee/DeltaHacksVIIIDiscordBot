@@ -133,7 +133,6 @@ function submitScale2() {
 					"id": patients_len,
 					"name": localData.get('patient_name')
 				})
-				// create new entry in /patients
 			}
 
 			window.location.replace('index')
