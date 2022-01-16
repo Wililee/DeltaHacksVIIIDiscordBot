@@ -38,6 +38,9 @@ function updatePainList() {
 	}
 }
 
+
+
+
 $("div[id=pain_scale]").hide()
 $("div[id=data-summary]").hide()
 // on click on body part, set the value to myStorage
@@ -102,6 +105,7 @@ function submitScale2() {
 // 	alert($('input[name=0]:checked', '#scale1').val());
 //  });
 
+
 function saveName() {
 	event.preventDefault();
 	localData.clear()
@@ -151,7 +155,14 @@ function showData(){
 			heading_1.innerHTML = "Date";
 			row_1.appendChild(heading_1);
 			var x = 0;
-			for(var keys in pat.data[0]){
+			var max = 0;
+			for(var i=0;i<pat.data.length;i++){
+				var k = Object.keys(pat.data[i]).length;
+				if(k > max){
+					x = i;
+				}
+			}
+			for(var keys in pat.data[x]){
 				if(keys !== "date"){
 					heading_1 = document.createElement('th');
 					heading_1.innerHTML = keys;
