@@ -109,6 +109,7 @@ buttonEl.addEventListener('click', () => run());
 const LangBox = document.getElementById('CurrentLang');
 
 const English = document.getElementById('SelectBoxEnglish');
+const Arabic = document.getElementById('SelectBoxArabic');
 const Dutch = document.getElementById('SelectBoxDutch');
 const French = document.getElementById('SelectBoxFrench');
 const German = document.getElementById('SelectBoxGerman');
@@ -123,6 +124,7 @@ const Vietnamese = document.getElementById('SelectBoxVietnamese');
 let currentLang = 'en';
 
 English.addEventListener('click', () => updateLang(English.innerText, English.getAttribute("value")));
+Arabic.addEventListener('click', () => updateLang(Arabic.innerText, Arabic.getAttribute("value")));
 Dutch.addEventListener('click',() => updateLang(Dutch.innerText,Dutch.getAttribute("value")));
 French.addEventListener('click',() => updateLang(French.innerText,French.getAttribute("value")));
 German.addEventListener('click',() => updateLang(German.innerText,German.getAttribute("value")));

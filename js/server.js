@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   } catch (error) {
     const {response: {status, data}} = error;
     res.status(status).json(data);
-  }
+  } 
 });
 
 app.set('port', 5000);
