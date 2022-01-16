@@ -275,10 +275,20 @@ function showData(){
 			}
 			obj.appendChild(table);
 
+			x = 0;
+			max = 0;
+			console.log(typeof pat.data)
+			for(var i=0;i<pat.body_parts.length;i++){
+				var k = Object.keys(pat.body_parts[i]).length;
+				if(k > max){
+					x = i;
+				}
+			}
+
 			// Creating and adding data to first row of the table
 			row_1 = document.createElement('tr');
 			heading_1 = document.createElement('th');
-			for(var keys in pat.body_parts[0]){
+			for(var keys in pat.body_parts[x]){
 				heading_1 = document.createElement('th');
 				heading_1.innerHTML = keys;
 				row_1.appendChild(heading_1);
