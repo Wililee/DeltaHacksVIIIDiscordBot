@@ -41,7 +41,7 @@ function updatePainList() {
 $("a[id=needs-icon]").on('click', function () {
 	var selected_need = $(this).attr('name');
 	$("h1[id=result]").html(selected_need)
-	
+
 });
 
 
@@ -94,7 +94,7 @@ function submitScale2() {
 	data.depression = $('input[name="Depression"]:checked').val();
 	data.anxiety = $('input[name="Anxiety"]:checked').val();
 	data.wellbeing = $('input[name="Wellbeing"]:checked').val();
-	data.date = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}`
+	data.date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}`
 
 	localData.set('data', data);
 
@@ -139,7 +139,7 @@ function submitScale2() {
 					"data": {
 						0: data
 					},
-					"id": patients_len,
+					"id": str(patients_len),
 					"name": localData.get('patient_name')
 				})
 			}
