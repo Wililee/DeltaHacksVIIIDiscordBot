@@ -20,7 +20,7 @@ var database = firebase.database();
 const dbRef = firebase.database().ref();
 dbRef.get().then((snapshot) => {
     if (snapshot.exists()) {
-        console.log(snapshot.val());
+        //console.log(snapshot.val());
     } else {
     console.log("No data available");
     }
