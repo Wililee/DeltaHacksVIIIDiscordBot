@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Fractal by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/styles.css">
+
+</head>
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+	<body onload="getPatients()" class="is-preload">
+		<!-- Header -->
+		<header id="header">
+          <h1 class="header__title">Patient Assessment Tool</h1>
+          <p class="header__sub-title">Patient Data Summary</p>
+		  <form>
+			<div class="col-12">
+				<select name="patient-selector" id="patient">
+					<option value="">- Patient Name -</option>
+				</select>
+			</div>
+		  </form>
+		  <ul class="actions">
+			<li><a onclick="showData()" id="view-data" href="#one" class="button icon solid fa-chevron-down scrolly">View</a></li>
+			</ul>
+		  <br>
+		  <br>
+		</header>
+
+		<!-- One -->
+		<section id="one" class="wrapper">
+			<div id="data-summary" class="inner alt">
+				<p class="header__sub-title">Symptom Data</p>
+				<!--Table goes here-->
+			</div>
+			<br><br><br><br>
+			<div id="parts-summary" class="inner alt">
+				<p class="header__sub-title">Localized Pain Data</p>
+				<!--Table goes here-->
+			</div>
+		</section>
+
+		<section id="two" class="wrapper">
+			<div class="inner alt">
+				<ul class="actions stacked">
+					<li><a href="/index.html" class="button large">Home</a></li>
+				</ul>
+				</section>
+			</div>
+		</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; Spaceteam Inc. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.3/firebase-app.min.js" integrity="sha512-wfb91x2PgmH1Lfc0Q8kqvH1DUwdCTKN5IVUV1pkFWP9KtId18jAIFFKtpKGESkuWJB+uIpGdcxvCv96r0ftApA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.3/firebase-database.min.js" integrity="sha512-ihizQu47bdkcrDcIwX0dOoVbENOXfPnDXsABFQ/ZjPiKYszz5h3p7STtqaRSN88GEkCGcjwtA0GNGvGcKcm7Eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+			<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+			<script src="./js/firebase.js"></script>
+			<script src="assets/js/localDataStorage-1.3.0.trim.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="./js/index.js"></script>
+
+	</body>
+</html>

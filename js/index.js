@@ -1,7 +1,9 @@
-// required dom elements
 const buttonEl = document.getElementById('button');
 const messageEl = document.getElementById('message');
 const titleEl = document.getElementById('real-time-title');
+
+const translateButton = document.getElementById('translateButton');
+const translationOutput = document.getElementById('translatedText')
 
 // set initial state of application variables
 messageEl.style.display = 'none';
@@ -11,9 +13,9 @@ let recorder;
 
 // runs real-time transcription and handles global variables
 const run = async () => {
-  if (isRecording) { 
+  if (isRecording) {
     if (socket) {
-      socket.send(JSON.stringify({terminate_session: true}));
+      socket.send(JSON.stringify({ terminate_session: true }));
       socket.close();
       socket = null;
     }
@@ -26,10 +28,10 @@ const run = async () => {
     const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
     const data = await response.json();
 
-    if(data.error){
+    if (data.error) {
       alert(data.error)
     }
-    
+
     const { token } = data;
 
     // establish wss with AssemblyAI (AAI) at 16000 sample rate
@@ -55,7 +57,7 @@ const run = async () => {
       console.error(event);
       socket.close();
     }
-    
+
     socket.onclose = event => {
       console.log(event);
       socket = null;
@@ -101,3 +103,52 @@ const run = async () => {
 };
 
 buttonEl.addEventListener('click', () => run());
+
+
+// TRANSLATION STUFF
+const LangBox = document.getElementById('CurrentLang');
+
+const English = document.getElementById('SelectBoxEnglish');
+const Arabic = document.getElementById('SelectBoxArabic');
+const Dutch = document.getElementById('SelectBoxDutch');
+const French = document.getElementById('SelectBoxFrench');
+const German = document.getElementById('SelectBoxGerman');
+const Italian = document.getElementById('SelectBoxItalian');
+const Japanese = document.getElementById('SelectBoxJapanese');
+const Korean = document.getElementById('SelectBoxKorean');
+const Marathi = document.getElementById('SelectBoxMarathi');
+const Polish = document.getElementById('SelectBoxPolish');
+const Russian = document.getElementById('SelectBoxRussian');
+const Spanish = document.getElementById('SelectBoxSpanish');
+const Vietnamese = document.getElementById('SelectBoxVietnamese');
+let currentLang = 'en';
+
+English.addEventListener('click', () => updateLang(English.innerText, English.getAttribute("value")));
+Arabic.addEventListener('click', () => updateLang(Arabic.innerText, Arabic.getAttribute("value")));
+Dutch.addEventListener('click',() => updateLang(Dutch.innerText,Dutch.getAttribute("value")));
+French.addEventListener('click',() => updateLang(French.innerText,French.getAttribute("value")));
+German.addEventListener('click',() => updateLang(German.innerText,German.getAttribute("value")));
+Italian.addEventListener('click',() => updateLang(Italian.innerText,Italian.getAttribute("value")));
+Japanese.addEventListener('click',() => updateLang(Japanese.innerText,Japanese.getAttribute("value")));
+Korean.addEventListener('click',() => updateLang(Korean.innerText,Korean.getAttribute("value")));
+Marathi.addEventListener('click', () =>updateLang(Marathi.innerText,Marathi.getAttribute("value")));
+Polish.addEventListener('click', () =>updateLang(Polish.innerText,Polish.getAttribute("value")));
+Russian.addEventListener('click',() => updateLang(Russian.innerText,Russian.getAttribute("value")));
+Spanish.addEventListener('click', () =>updateLang(Spanish.innerText,Spanish.getAttribute("value")));
+Vietnamese.addEventListener('click',() => updateLang(Vietnamese.innerText,Vietnamese.getAttribute("value")));
+
+translate.engine = "google";
+translate.key = '';
+
+
+translateButton.addEventListener('click', async () => {
+
+  const text = await translate(messageEl.innerText, currentLang);
+  translationOutput.innerText = text;
+
+})
+
+function updateLang(language,symbol){
+  currentLang = symbol;
+  LangBox.innerText = language;
+}

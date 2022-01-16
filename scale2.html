@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fractal by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+	</head>
+  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+  <header id="header">
+	<h1 class="header__title">Select the numbers that best describe how you feel NOW:</h1>
+	<br>
+	<br>
+	<br>
+
+	<div class="inner alt">
+		<section class="spotlight">
+			<form method="post" action="#">
+					<div class="table-wrapper">
+						<table>
+							<tbody>
+								<script type="text/javascript">
+									var symptoms = new Array("Shortness of Breath","Depression","Anxiety","Wellbeing");
+									for (i=0;i<symptoms.length;i++)
+									{
+										document.write("<tr id=\"" + symptoms[i] + "\"><td><p style=\"color:white\" class=\"header__sub-title\">No " + symptoms[i] + "</p></td>");
+										document.write("<td id=\"" + symptoms[i] + "-selector\">");
+										for(j=0;j<=10;j++)
+										{
+											document.write("<input value=\"" + j + "\" type=\"radio\" id=\"" + i + "-" + j + "\" name=\"" + symptoms[i] + "\"><label for=\"" + i + "-" + j + "\"><p style=\"font-size:20px\">" + j + "</p></label>");
+										}
+										document.write("</td><td><p style=\"color:white\" class=\"header__sub-title\">Worst Possible " + symptoms[i] + "</p></td>");
+									}
+								</script>
+
+							</tbody>
+						</table>
+
+					</div>
+					<br>
+					<div class="col-12">
+						<ul class="actions">
+							<li><input onclick="submitScale2()" type="submit" value="Next" class="primary"/></li>
+							<li><input type="reset" value="Clear" /></li>
+							<li>
+
+								<div id="google_translate_element"></div>
+	
+								<script type="text/javascript">
+									function googleTranslateElementInit() {
+										new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+									}
+								</script>
+	
+								<script type="text/javascript"
+									src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+							</li>
+						</ul>
+					</div>
+			</form>
+			</section>
+
+	</div>
+  </header>
+	<body class="is-preload">
+
+		<!-- Two -->
+			<section id="two" class="wrapper">
+				<div class="inner alt">
+					<ul class="actions stacked">
+						<li><a href="/index.html" class="button large">Home</a></li>
+					</ul>
+					</section>
+				</div>
+			</section>
+
+
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; Spaceteam Inc. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+			<script src="./js/firebase.js"></script>
+			<script src="assets/js/localDataStorage-1.3.0.trim.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script src="./js/index.js"></script>
+
+	</body>
+</html>
