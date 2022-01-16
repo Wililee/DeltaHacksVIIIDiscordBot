@@ -184,12 +184,13 @@ function showData(){
 	dbRef.get().then((snapshot) => {
 		if (snapshot.exists()) {
 			var data = snapshot.val();
+			console.log(data)
 			event.preventDefault();
 			var patient_id = $("select[id=patient]").val();
 			var pat = 0;
 			for(var i=0;i<data.patients.length;i++){
 				console.log(data.patients[i].id + patient_id)
-				if(data.patients[i].id === patient_id){
+				if(data.patients[i].id == patient_id){
 					pat = data.patients[i];
 				}
 			}
@@ -218,6 +219,7 @@ function showData(){
 			row_1.appendChild(heading_1);
 			var x = 0;
 			var max = 0;
+			console.log(typeof pat.data)
 			for(var i=0;i<pat.data.length;i++){
 				var k = Object.keys(pat.data[i]).length;
 				if(k > max){
