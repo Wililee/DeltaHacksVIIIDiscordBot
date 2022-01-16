@@ -87,11 +87,14 @@ function submitScale1() {
 
 function submitScale2() {
 	event.preventDefault();
+	const d = new Date();
 	data = localData.get('data');
 	data.breath = $('input[name="Shortness of Breath"]:checked').val();
 	data.depression = $('input[name="Depression"]:checked').val();
 	data.anxiety = $('input[name="Anxiety"]:checked').val();
 	data.wellbeing = $('input[name="Wellbeing"]:checked').val();
+	data.date = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}`
+
 	localData.set('data', data);
 
 
