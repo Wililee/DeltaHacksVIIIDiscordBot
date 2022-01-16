@@ -72,14 +72,11 @@ $("map[name=parts] area").on('click', function () {
 function submitScale1() {
 	event.preventDefault();
 	data = {};
-	var pain = $('input[name="Pain"]:checked').val();
-	var tiredness = $('input[name="Tiredness"]:checked').val();
-	var nausea = $('input[name="Nausea"]:checked').val();
-	var appetite = $('input[name="Lack of Appetite"]:checked').val();
-	data.pain = pain;
-	data.tiredness = tiredness;
-	data.nausea = nausea;
-	data.appetite = appetite;
+	data.pain = $('input[name="Pain"]:checked').val();
+	data.tiredness = $('input[name="Tiredness"]:checked').val();
+	data.drowsiness = $('input[name="Drowsiness"]:checked').val();
+	data.nausea = $('input[name="Nausea"]:checked').val();
+	data.appetite = $('input[name="Lack of Appetite"]:checked').val();
 	localData.set('data', data);
 	window.location.replace('scale2')
 }
@@ -87,17 +84,66 @@ function submitScale1() {
 function submitScale2() {
 	event.preventDefault();
 	data = localData.get('data');
-	var breath = $('input[name="Shortness of Breath"]:checked').val();
-	var depression = $('input[name="Depression"]:checked').val();
-	var anxiety = $('input[name="Anxiety"]:checked').val();
-	var wellbeing = $('input[name="Wellbeing"]:checked').val();
-	data.breath = breath;
-	data.depression = depression;
-	data.anxiety = anxiety;
-	data.wellbeing = wellbeing;
+	data.breath = $('input[name="Shortness of Breath"]:checked').val();
+	data.depression = $('input[name="Depression"]:checked').val();
+	data.anxiety = $('input[name="Anxiety"]:checked').val();
+	data.wellbeing = $('input[name="Wellbeing"]:checked').val();
 	localData.set('data', data);
-	// WRITE TO FIREBASE
-	window.location.replace('index')
+
+
+	const dbRef = firebase.database().ref();
+	dbRef.child("patients").get().then((snapshot) => {
+		if (snapshot.exists()) {
+			// console.log(snapshot.val());
+			var userExists = false;
+			var idx = -1;
+			for (let i = 0; i < snapshot.val().length; i++) {
+				if(localData.get('patient_name') == snapshot.val()[i].name) {
+
+					userExists = true;
+					idx = i;
+					break;
+				}
+			}
+
+			var body_part_toPush = {}
+			var body_parts = localData.get('body_parts')
+			for(var i = 0; i < body_parts.length; i++){
+				part_name = body_parts[i]["part name"]
+				body_part_toPush[part_name] = body_parts[i].pain
+			}
+
+			if ( userExists ) {
+
+				var body_parts_len = snapshot.val()[idx].body_parts.length
+				var data_len = snapshot.val()[idx].data.length
+
+				dbRef.child("patients").child(idx).child("body_parts").update({
+					[body_parts_len]: body_part_toPush
+				})
+				dbRef.child("patients").child(idx).child("data").update({
+					[data_len]: data
+				})
+			} else {
+				var patients_len = snapshot.val().length
+				dbRef.child("patients").child(patients_len).set({
+					"body_parts": {
+						0: body_part_toPush
+					},
+					"data": {
+						0: data
+					},
+					"id": patients_len,
+					"name": localData.get('patient_name')
+				})
+			}
+
+			window.location.replace('index')
+		} else {
+		alert("No data available");
+		}
+	})
+
 }
 
 
@@ -185,7 +231,7 @@ function showData(){
 						row_data.innerHTML = pat.data[i][keys];
 						row.appendChild(row_data);
 					}
-					
+
 				}
 				tbody.appendChild(row);
 			}
@@ -231,7 +277,7 @@ function showData(){
 		console.log("No data available");
 		}
 	})
-	
+
 }
 
 (function($) {
