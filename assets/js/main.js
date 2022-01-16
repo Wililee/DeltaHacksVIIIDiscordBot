@@ -139,7 +139,7 @@ function submitScale2() {
 					"data": {
 						0: data
 					},
-					"id": str(patients_len),
+					"id": patients_len,
 					"name": localData.get('patient_name')
 				})
 			}
