@@ -19,16 +19,15 @@
 
 </head>
 <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-	<body class="is-preload">
+	<body onload="getPatients()" class="is-preload">
 		<!-- Header -->
 		<header id="header">
           <h1 class="header__title">Patient Assessment Tool</h1>
           <p class="header__sub-title">Patient Data Summary</p>
 		  <form>
 			<div class="col-12">
-				<select name="patient" id="patient">
+				<select name="patient-selector" id="patient">
 					<option value="">- Patient Name -</option>
-
 				</select>
 			</div>
 		  </form>
