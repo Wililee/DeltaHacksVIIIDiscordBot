@@ -38,7 +38,11 @@ function updatePainList() {
 	}
 }
 
-
+$("a[id=needs-icon]").on('click', function () {
+	var selected_need = $(this).attr('name');
+	$("h1[id=result]").html(selected_need)
+	
+});
 
 
 $("div[id=pain_scale]").hide()
