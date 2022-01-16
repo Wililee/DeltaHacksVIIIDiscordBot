@@ -47,6 +47,7 @@ $("a[id=needs-icon]").on('click', function () {
 
 $("div[id=pain_scale]").hide()
 $("div[id=data-summary]").hide()
+$("div[id=parts-summary]").hide()
 // on click on body part, set the value to myStorage
 $("map[name=parts] area").on('click', function () {
     var selected_part = $(this).attr('id');
@@ -198,6 +199,7 @@ function showData(){
 				}
 			}
 			$("div[id=data-summary]").show();
+			$("div[id=parts-summary]").show();
 
 			let table = document.createElement('table');
 			table.id = "data-table"
