@@ -48,13 +48,71 @@ $("map[name=parts] area").on('click', function () {
 	localData.set("selected_part", selected_part);
 	localData.set("selected_part_name", selected_part_name);
 	var body_parts = localData.get('body_parts')
-	body_parts.push({'part name': selected_part_name, 'part': selected_part, 'pain': null})
+	var exists = false;
+	for (let i = 0; i < body_parts.length; i++) {
+		if (body_parts[i].part == selected_part) {
+			body_parts[i].pain = null;
+			exists = true;
+			break;
+		}
+	}
+	if (exists == false) {
+		body_parts.push({'part name': selected_part_name, 'part': selected_part, 'pain': null})
+	}
 	localData.set('body_parts', body_parts);
 
 	$("img[id=body_diagram]").hide()
 	$("div[id=pain_scale]").show()
 	$("p[class=header__sub-title]").html("Please mark how much it hurts on your " + selected_part_name)
 });
+
+function submitScale1() {
+	event.preventDefault();
+	data = {};
+	var pain = $('input[name="Pain"]:checked').val();
+	var tiredness = $('input[name="Tiredness"]:checked').val();
+	var nausea = $('input[name="Nausea"]:checked').val();
+	var appetite = $('input[name="Lack of Appetite"]:checked').val();
+	data.pain = pain;
+	data.tiredness = tiredness;
+	data.nausea = nausea;
+	data.appetite = appetite;
+	localData.set('data', data);
+	window.location.replace('scale2')
+}
+
+function submitScale2() {
+	event.preventDefault();
+	data = localData.get('data');
+	var breath = $('input[name="Shortness of Breath"]:checked').val();
+	var depression = $('input[name="Depression"]:checked').val();
+	var anxiety = $('input[name="Anxiety"]:checked').val();
+	var wellbeing = $('input[name="Wellbeing"]:checked').val();
+	data.breath = breath;
+	data.depression = depression;
+	data.anxiety = anxiety;
+	data.wellbeing = wellbeing;
+	localData.set('data', data);
+	// WRITE TO FIREBASE
+	window.location.replace('index')
+}
+
+
+// $('#scale1 input').on('change', function() {
+// 	alert($('input[name=0]:checked', '#scale1').val());
+//  });
+
+function saveName() {
+	event.preventDefault();
+	localData.clear()
+	var patient_name = $("input[id=pname]").val()
+	localData.set('patient_name', patient_name);
+
+	localData.set('body_parts', []);
+	$("p[class=header__sub-title]").html('Patient: ' + patient_name)
+	window.location.replace('bodyparts.html')
+}
+
 
 function showData(){
 	data = {
@@ -191,17 +249,6 @@ function showData(){
 		}
 		tbody.appendChild(row);
 	}
-}
-
-function saveName() {
-	event.preventDefault();
-	localData.clear()
-	var patient_name = $("input[id=pname]").val()
-	localData.set('patient_name', patient_name);
-
-	localData.set('body_parts', []);
-	$("p[class=header__sub-title]").html('Patient: ' + patient_name)
-	window.location.replace('bodyparts.html')
 }
 
 (function($) {
