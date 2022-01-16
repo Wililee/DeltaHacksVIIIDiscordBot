@@ -94,7 +94,6 @@ function submitScale2() {
 	const dbRef = firebase.database().ref();
 	dbRef.child("patients").get().then((snapshot) => {
 		if (snapshot.exists()) {
-			// console.log(snapshot.val());
 			var userExists = false;
 			var idx = -1;
 			for (let i = 0; i < snapshot.val().length; i++) {
@@ -114,7 +113,6 @@ function submitScale2() {
 			}
 
 			if ( userExists ) {
-
 				var body_parts_len = snapshot.val()[idx].body_parts.length
 				var data_len = snapshot.val()[idx].data.length
 
@@ -144,6 +142,20 @@ function submitScale2() {
 		}
 	})
 
+}
+
+function getPatients() {
+	dbRef.child("patients").get().then((snapshot) => {
+		if (snapshot.exists()) {
+			var patients_len = snapshot.val().length;
+			var patient_arr = []
+			for (let i = 0; i < patients_len; i++) {
+				var patient_name = snapshot.val()[i].name
+				$("select[name=patient-selector]").append(`<option value=\"${i}\">${patient_name}</option>`)
+			}
+
+		}
+	})
 }
 
 
