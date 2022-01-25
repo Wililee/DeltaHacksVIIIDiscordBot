@@ -1,5 +1,7 @@
 # DeltaHacksVIIIHealthCarePro
 
+DevPost: https://devpost.com/software/nursing-handbook-pro
+
 ## Inspiration 🌎
 One of the challenges in our multicultural country is providing healthcare to non-verbal or non-English speaking patients.
 
